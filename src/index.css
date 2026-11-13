@@ -1,0 +1,107 @@
+@import 'tailwindcss';
+@import '@fontsource/press-start-2p/400.css';
+@import '@fontsource/space-mono/400.css';
+@import '@fontsource/space-mono/700.css';
+
+/* `dark:` variant follows <html data-theme="dark"> (set in index.html + useTheme) */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* ---------- Retro neo-brutalist palette ---------- */
+:root {
+  color-scheme: light;
+  --bg: #fff4d6; /* cream paper */
+  --surface: #ffffff;
+  --ink: #111111;
+  --line: #111111; /* borders */
+  --shadow-color: #111111; /* hard offset shadows */
+  --muted: #5c5346;
+  --primary: #ffd23f; /* arcade yellow */
+  --secondary: #ff6b9d; /* bubblegum pink */
+  --accent: #3bceac; /* mint */
+  --track: #ffd23f;
+  --dot: rgba(17, 17, 17, 0.12);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #1b1a2e; /* midnight CRT */
+  --surface: #2b2946;
+  --ink: #f8f1de;
+  --line: #f8f1de;
+  --shadow-color: #f8f1de;
+  --muted: #b9b2c9;
+  --track: #7b5cff; /* synth violet */
+  --dot: rgba(248, 241, 222, 0.1);
+}
+
+/* Fallback if JS is disabled: follow the system preference */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg: #1b1a2e;
+    --surface: #2b2946;
+    --ink: #f8f1de;
+    --line: #f8f1de;
+    --shadow-color: #f8f1de;
+    --muted: #b9b2c9;
+    --track: #7b5cff;
+    --dot: rgba(248, 241, 222, 0.1);
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-track: var(--track);
+  --color-on-bright: #111111; /* text on yellow/pink/mint, same in both themes */
+
+  --font-pixel: 'Press Start 2P', ui-monospace, monospace;
+  --font-body: 'Space Mono', ui-monospace, monospace;
+
+  --shadow-brutal: 4px 4px 0 0 var(--shadow-color);
+  --shadow-brutal-sm: 2px 2px 0 0 var(--shadow-color);
+  --shadow-brutal-lg: 6px 6px 0 0 var(--shadow-color);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    min-height: 100svh;
+    overflow-x: hidden;
+    background-color: var(--bg);
+    /* retro dot-grid paper */
+    background-image: radial-gradient(var(--dot) 1.5px, transparent 1.5px);
+    background-size: 22px 22px;
+    color: var(--ink);
+    transition:
+      background-color 0.25s,
+      color 0.25s;
+  }
+
+  #root {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  :focus-visible {
+    outline: 3px dashed var(--secondary);
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
+}
