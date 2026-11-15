@@ -1,6 +1,7 @@
 import { MotionConfig } from 'motion/react'
 import { useEffect } from 'react'
 import { HashRouter, Route, Routes, useLocation } from 'react-router'
+import { ScrollArrows } from './components/ScrollArrows'
 import { ThemeSwitch } from './components/ThemeSwitch'
 import { Home } from './pages/Home'
 import { Roadmap } from './pages/Roadmap'
@@ -22,6 +23,7 @@ function App() {
       <HashRouter>
         <ScrollToTop />
         <ThemeSwitch />
+        <ScrollArrows />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/roadmap" element={<Roadmap />} />

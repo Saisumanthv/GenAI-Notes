@@ -73,6 +73,13 @@
   html {
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
+    /* Hide the native scrollbar (page still scrolls); <ScrollArrows> replaces it */
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
   }
 
   body {
