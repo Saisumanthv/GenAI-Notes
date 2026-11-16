@@ -4,7 +4,8 @@ import { BrutalButton } from '../components/BrutalButton'
 
 const NAV_ITEMS = [
   { label: 'Roadmap', variant: 'primary', to: '/roadmap' },
-  { label: 'Notes', variant: 'secondary', to: null }, // page not built yet
+  { label: 'Notes', variant: 'secondary', to: '/notes' },
+  { label: 'Projects', variant: 'accent', to: '/projects' },
 ] as const
 
 export function Home() {

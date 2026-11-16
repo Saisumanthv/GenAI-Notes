@@ -4,6 +4,8 @@ import { HashRouter, Route, Routes, useLocation } from 'react-router'
 import { ScrollArrows } from './components/ScrollArrows'
 import { ThemeSwitch } from './components/ThemeSwitch'
 import { Home } from './pages/Home'
+import { Notes } from './pages/Notes'
+import { Projects } from './pages/Projects'
 import { Roadmap } from './pages/Roadmap'
 
 // Start each page at the top when navigating
@@ -27,6 +29,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/roadmap" element={<Roadmap />} />
+          <Route path="/notes" element={<Notes />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </HashRouter>
